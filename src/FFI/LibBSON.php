@@ -49,6 +49,21 @@ final class LibBSON
         return self::ffi()->bson_init_from_json($bson, $data, $len, $error);
     }
 
+    public static function bson_iter_find(CData $iter, string $key): bool
+    {
+        return self::ffi()->bson_iter_find($iter, $key);
+    }
+
+    public static function bson_iter_init(CData $iter, CData $bson): bool
+    {
+        return self::ffi()->bson_iter_init($iter, $bson);
+    }
+
+    public static function bson_iter_utf8(CData $iter, CData $length): string
+    {
+        return self::ffi()->bson_iter_utf8($iter, $length);
+    }
+
     public static function bson_new(): CData
     {
         return self::ffi()->bson_new();

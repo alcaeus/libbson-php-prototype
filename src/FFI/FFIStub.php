@@ -21,5 +21,11 @@ interface FFIStub
 
     public static function bson_init_from_json(CData $bson, string $data, int $len, CData $error): bool;
 
+    public static function bson_iter_find(CData $iter, string $key): bool;
+
+    public static function bson_iter_init(CData $iter, CData $bson): bool;
+
+    public static function bson_iter_utf8(CData $iter, CData $length): string;
+
     public static function bson_new(): CData;
 }
