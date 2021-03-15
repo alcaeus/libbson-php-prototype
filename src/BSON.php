@@ -52,7 +52,7 @@ final class BSON implements Stringable
         return self::ffi()->bson_has_field($this->data, $key);
     }
 
-    private static function ffi(): FFI
+    private static function ffi(): FFI | FFIStub
     {
         return self::$ffi ??= FFI::load(__DIR__ . '/BSON/libbson.h');
     }
