@@ -17,12 +17,6 @@ typedef struct _bson_t {
 } bson_t;
 
 extern bool
-bson_init_from_json (bson_t *bson,
-                     const char *data,
-                     ssize_t len,
-                     bson_error_t *error);
-
-extern bool
 bson_append_utf8 (bson_t *bson,
                   const char *key,
                   int key_length,
@@ -35,5 +29,17 @@ bson_as_json (const bson_t *bson, size_t *length);
 extern uint32_t
 bson_count_keys (const bson_t *bson);
 
+extern void
+bson_destroy (bson_t *bson);
+
 extern bool
 bson_has_field (const bson_t *bson, const char *key);
+
+extern bool
+bson_init_from_json (bson_t *bson,
+                     const char *data,
+                     ssize_t len,
+                     bson_error_t *error);
+
+extern bson_t *
+bson_new (void);
