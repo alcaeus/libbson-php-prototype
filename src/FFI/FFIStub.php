@@ -27,5 +27,7 @@ interface FFIStub
 
     public static function bson_iter_utf8(CData $iter, CData $length): string;
 
+    public static function bson_iter_visit_all(CData $iter, CData $visitor, ?CData $data): bool;
+
     public static function bson_new(): CData;
 }

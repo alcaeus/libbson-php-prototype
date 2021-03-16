@@ -64,6 +64,11 @@ final class LibBSON
         return self::ffi()->bson_iter_utf8($iter, $length);
     }
 
+    public static function bson_iter_visit_all(CData $iter, CData $visitor, ?CData $data): bool
+    {
+        return self::ffi()->bson_iter_visit_all($iter, $visitor, $data);
+    }
+
     public static function bson_new(): CData
     {
         return self::ffi()->bson_new();

@@ -30,6 +30,11 @@ final class BSONIterator
         return LibBSON::bson_iter_utf8(FFI::addr($this->iter), FFI::addr($length));
     }
 
+    public function visitAll(BSONVisitor $visitor): bool
+    {
+        return LibBSON::bson_iter_visit_all(FFI::addr($this->iter), FFI::addr($visitor->createVisitorT()), null);
+    }
+
     private function getBsonT(BSON $bson): CData
     {
         self::$getBsonT ??= Closure::bind(
